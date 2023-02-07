@@ -110,8 +110,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_ADC_PollForConversion(&hadc1, 100);
-	  adc1 = HAL_ADC_GetValue(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, 100); //해당 핸들러에 있는 데이터 출력(아날로그에서 데이터 변환)
+	  adc1 = HAL_ADC_GetValue(&hadc1); //데이터를 읽는 과정(ADC값 반환)
 	  vSense = adc1 * ADC_TO_VOLT;
 	  temp = (V25 - vSense) / AVG_SLOPE + 25.0;
 	  printf ("ADC1_TEMP: %d, %f\r\n", adc1, temp);
